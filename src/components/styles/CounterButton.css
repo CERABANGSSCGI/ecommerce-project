@@ -1,0 +1,25 @@
+#counter-button{
+  background-color: #b5c99a !important;
+  border-radius: 10px;
+  padding: 4px 23.5px !important;
+  font-family: "Medula One";
+  transition: all ease 0.1s;
+  color: #303030 !important;
+  letter-spacing: 3px;
+  border: none;
+  font-size: 26px;
+  margin-top: 16px;
+}
+
+#counter-button-inner{
+  background-color: #b5c99a !important;
+  border-radius: 10px;
+  padding: 12px 23.5px !important;
+  font-family: "Medula One";
+  transition: all ease 0.1s;
+  color: #303030 !important;
+  letter-spacing: 3px;
+  border: none;
+  font-size: 26px;
+  margin-top: 0px;
+}

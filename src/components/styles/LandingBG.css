@@ -1,0 +1,24 @@
+#bg-cover{
+  background-image: url(../../assets/beans.jpg);
+  height: 100vh;
+  background-size: cover;
+  margin: 0 !important;
+}
+#welcome-container{
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  align-items: center;
+  justify-content: center;
+}
+#welcome-msg{
+  display: flex;
+  padding: 30px;
+  color: #F6E6D2;
+  background-color: #6f4e378c;
+  font-family: "Medula One";
+  font-size: 100px;
+  border-radius: 10px;
+  letter-spacing: 3px;
+  backdrop-filter: blur(2px);
+}

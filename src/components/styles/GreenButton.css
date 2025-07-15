@@ -1,0 +1,17 @@
+#green-button{
+  background-color: #b5c99a !important;
+  border-radius: 50px;
+  padding: 10px 70px !important;
+  font-family: "Medula One";
+  transition: all ease 0.1s;
+  color: #303030 !important;
+  letter-spacing: 3px;
+  border: none;
+  font-size: 26px;
+  margin-top: 16px;
+}
+
+#green-button:active {
+  opacity: 0.90;
+  transform: translateY(0.8px);
+}

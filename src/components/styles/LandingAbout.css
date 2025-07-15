@@ -1,0 +1,22 @@
+#landing-about-img{
+  height: 300px;
+  width: 300px;
+  border-radius: 300px;
+  object-fit: cover;
+  box-shadow: 0 0 10px #303030b5;
+}
+
+#landing-about-desc{
+  font-family: "Yanone Kaffeesatz";
+  text-align: end;
+}
+
+#landing-about-desc h1{
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+#landing-about-desc p{
+  font-weight: light;
+  letter-spacing: 2px;
+}

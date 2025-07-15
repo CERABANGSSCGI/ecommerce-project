@@ -1,0 +1,33 @@
+#landing-prices-bg{
+  overflow: hidden;
+}
+.prices-left-bg{
+ width: 50vw;
+ height: 100vh;
+ transition: all ease 0.5s;
+}
+.prices-left-bg img{
+ width: 50vw;
+ height: 100vh;
+ object-fit: cover;
+ clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+}
+.prices-right-bg{
+  width: 50vw;
+  height: 100vh;
+  transition: all ease 0.5s;
+}
+.prices-right-bg img{
+ width: 50vw;
+ height: 100vh;
+ object-fit: cover;
+ clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.prices-left-bg:hover,
+.prices-right-bg:hover {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+

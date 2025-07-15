@@ -1,0 +1,12 @@
+#add-to-cart{
+  background-color: #b5c99a !important;
+  border-radius: 10px;
+  padding: 8px 40px !important;
+  font-family: "Medula One";
+  transition: all ease 0.1s;
+  color: #303030 !important;
+  letter-spacing: 3px;
+  border: none;
+  font-size: 36px;
+  margin-top: 16px;
+}
