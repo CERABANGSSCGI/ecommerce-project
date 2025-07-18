@@ -1,11 +1,13 @@
-import { useNavigate } from "react-router";
+
 import "../styles/NavBar.css";
 
-const navItems = [{name:"Home", link:"/"}, {name:"History"},{name:"Products", link:"/Products"}];
+const navItems = [
+  { name: "Home" },
+  { name: "History" },
+  { name: "Products" },
+];
 
 function NavBar() {
-
-  const navigate = useNavigate()
 
   return (
     <>
@@ -26,12 +28,39 @@ function NavBar() {
             <ul className="navbar-nav ms-auto">
               {navItems.map((item, index) => (
                 <li className="nav-item text-center m-3" key={index}>
-                  <a onClick={()=>navigate(item.link)} className="text-center text-decoration-none" id="nav-links">{item.name}</a>
+                  <a
+                    className="text-center text-decoration-none"
+                    id="nav-links"
+                  >
+                    {item.name}
+                  </a>
                 </li>
               ))}
-              
+              <li className="nav-item text-center m-3">
+                <a
+                  href="#discount-title"
+                  className="text-center text-decoration-none"
+                  id="nav-links"
+                >
+                  Promos
+                </a>
+              </li>
+              <li className="nav-item text-center m-3">
+                <a
+                  href="#contact"
+                  className="text-center text-decoration-none"
+                  id="nav-links"
+                >
+                  Contact Us
+                </a>
+              </li>
             </ul>
-            <a onClick={()=>navigate("/SignIn")} href="/SignIn"  className="p-1 ms-auto d-flex justify-content-center text-decoration-none fs-5" id="signin-btn">
+            <a
+              onClick={() => navigate("/SignIn")}
+              href="/SignIn"
+              className="p-1 ms-auto d-flex justify-content-center text-decoration-none fs-5"
+              id="signin-btn"
+            >
               Sign In
             </a>
           </div>

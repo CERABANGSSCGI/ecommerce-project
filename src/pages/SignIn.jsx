@@ -3,11 +3,10 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import GreenButton from "../components/units/GreenButton";
 import "./SignIn.css";
 import { useNavigate } from "react-router";
+import { Link } from "react-router";
 
 function SignIn() {
 
-   const navigate = useNavigate()
-   
   return (
     <>
       <div className="bg-signin d-flex justify-content-center align-items-center">
@@ -44,7 +43,7 @@ function SignIn() {
                 </div>
               </form>
               <div class="container mb-3 d-flex justify-content-center align-items-center">
-                  <GreenButton greenButtonDesc="Sign Up" onClick={()=>navigate("/SignUp")}/>
+                  <GreenButton greenButtonDesc={<Link to={"/SignUp"}>SignUp</Link>}/>
                 </div>
             </div>
           </div>

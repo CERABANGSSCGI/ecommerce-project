@@ -3,7 +3,7 @@ import GreenButton from "../units/GreenButton";
 
 const LandingContact = () => {
   return (
-    <div className="bg-container pt-5">
+    <div id="contact"className="bg-container pt-5">
       <div className="container">
         <div class="w-100 d-flex flex-column justify-content-center align-items-center">
           <h1 className="contact-head">Contact</h1>
