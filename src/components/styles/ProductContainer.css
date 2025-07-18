@@ -1,0 +1,39 @@
+.card{
+  width: 250px;
+  height: auto;
+}
+.card-title{
+  font-family: "Quicksand";
+  font-size: 30px;
+  text-transform: uppercase;
+}
+.card-subtitle{
+  font-family: "Quicksand";
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.card-text{
+  font-family: "Quicksand";
+  font-size: 16px;
+}
+
+.add-cart{
+  display: flex;
+  justify-content: center;
+}
+.add-cart-btn{
+  background-color: #B5C99A;
+  padding: 10px;
+  border-radius: 16px;
+  display: flex;
+  text-decoration: none;
+  border: none;
+  font-family: "Quicksand";
+}
+@media(max-width:760px){
+  .card{
+    width: auto;
+    height: auto;
+  }
+}

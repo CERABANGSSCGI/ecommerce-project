@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router";
 import "../styles/NavBar.css";
 
-const navItems = [{name:"Home"}, {name:"History"},{name:"Products"}, {name:"Promos"}, {name:"Contact Us"}];
+const navItems = [{name:"Home", link:"/"}, {name:"History"},{name:"Products", link:"/Products"}];
 
 function NavBar() {
+
+  const navigate = useNavigate()
+
   return (
     <>
       <nav className="navbar navbar-expand-md position-fixed">
@@ -22,11 +26,12 @@ function NavBar() {
             <ul className="navbar-nav ms-auto">
               {navItems.map((item, index) => (
                 <li className="nav-item text-center m-3" key={index}>
-                  <a href="#" className="text-center text-decoration-none" id="nav-links">{item.name}</a>
+                  <a onClick={()=>navigate(item.link)} className="text-center text-decoration-none" id="nav-links">{item.name}</a>
                 </li>
               ))}
+              
             </ul>
-            <a href="#" className="p-1 ms-auto d-flex justify-content-center text-decoration-none fs-5" id="signin-btn">
+            <a onClick={()=>navigate("/SignIn")} href="/SignIn"  className="p-1 ms-auto d-flex justify-content-center text-decoration-none fs-5" id="signin-btn">
               Sign In
             </a>
           </div>

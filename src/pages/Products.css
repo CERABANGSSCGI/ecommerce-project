@@ -1,0 +1,47 @@
+.bg-products{
+  background-image: url(../assets/beans.jpg);
+  background-size: cover;
+  background-position: center;
+  height: auto;
+}
+.product-items{
+  height: inherit;
+}
+.product-head{
+  padding: 100px 50px 16px 50px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #F6E6D2;
+  font-family: "Quicksand";
+}
+#product-footer{
+  background-color: #6f4e377d;
+  color: #F6E6D2;
+  font-family: "Quicksand";
+  position: fixed;
+  bottom: 0;
+  min-width: 100vw;
+  backdrop-filter: blur(2px);
+}
+#product-items{
+  color: #F6E6D2;
+  font-family: "Quicksand";
+}
+#product-checkout-btn{
+  color: #303030;
+  font-family: "Quicksand";
+  background-color: #B5C99A;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.307);
+}
+.search-btn{
+  background-color: #B5C99A;
+  border: none;
+}
+.search-btn:hover{
+  background-color: #b5c99ac0;
+}
+.search-product{
+  width: 70vw;
+}

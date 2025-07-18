@@ -9,4 +9,6 @@
   border: none;
   font-size: 36px;
   margin-top: 16px;
+  white-space: nowrap;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
 }

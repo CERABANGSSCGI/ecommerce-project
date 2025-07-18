@@ -3,7 +3,7 @@ import "../styles/GreenButton.css"
 const GreenButton = (props) => {
   return (
     <div>
-      <button id="green-button">{props.greenButtonDesc}</button>
+      <button onClick={props.onClick} id="green-button">{props.greenButtonDesc}</button>
     </div>
   )
 }

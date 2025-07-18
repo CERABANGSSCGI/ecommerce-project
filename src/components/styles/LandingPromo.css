@@ -1,8 +1,7 @@
-.landing-promo{
-  height: 80vh;
-}
 
-.landing-promo-container{
-  height: 50vh;
-  background-color: #f2f2f2;
+#discount-title{
+  font-family: "Medula One";
+  letter-spacing: 10px;
+  font-size: 70px;
+  text-transform: uppercase;
 }
