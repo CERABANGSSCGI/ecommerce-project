@@ -2,9 +2,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./Products.css";
 import ProductContainer from "../components/comps/ProductContainer";
-import NavBar from "../components/comps/NavBar";
+import NavBarCustomer from "../components/comps/NavBarCustomer";
 
 function Products() {
+
   // temporary items soon get in DB
   const productContents = [
     {
@@ -13,17 +14,17 @@ function Products() {
       desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, minima?",
     },
     {
-      name: "Kasoy",
+      name: "Tae",
       price: "31.00",
       desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, minima?",
     },
     {
-      name: "Kasoy",
+      name: "Customer",
       price: "31.00",
       desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, minima?",
     },
     {
-      name: "Kasoy",
+      name: "asdasd",
       price: "31.00",
       desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, minima?",
     },
@@ -41,7 +42,7 @@ function Products() {
 
   return (
     <>
-      <NavBar />
+      <NavBarCustomer />
       <div className="bg-products">
         <div className="container">
           <h1 className="product-head">Products</h1>

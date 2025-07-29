@@ -1,6 +1,6 @@
 .feedback-container{
   color: #303030;
-  background-color: #d7d7d775;
+  background-color: #d7d7d79d;
   font-family: "Medula One";
   font-size: 30px;
   border-radius: 10px;
@@ -56,5 +56,6 @@
   background-image: url(../../assets/coffee-shop-inside.jpg);
   background-size: cover;
   height: 150vh;
+  background-position: center;
 
 }

@@ -1,13 +1,29 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/NavBar.css";
-import Home from "../../pages/Home";
+import { useContext } from "react";
+import api from "../../api";
+import { AuthContext } from "../../context/AuthContext";
 
 const navItems = [
-  { name: "Home", link:"/" },
-  { name: "History", link:"/History" },
+  { name: "Home", link: "/HomeCustomer" },
+  { name: "Products", link: "/Products" },
+  { name: "Cart", link: "/Cart" },
 ];
 
-function NavBar() {
+function NavBarCustomer() {
+
+  const navigate = useNavigate();
+  const { setUser } = useContext(AuthContext);
+
+  const handleSubmit = async () => {
+    try {
+      await api.post("/logout");
+      setUser(null);
+      navigate("/");
+    } catch (err) {
+      alert(err.response?.data?.msg || "Logged Out Failed");
+    }
+  };
 
   return (
     <>
@@ -37,32 +53,14 @@ function NavBar() {
                   </Link>
                 </li>
               ))}
-              <li className="nav-item text-center m-3">
-                <a
-                  href="/#discount-title"
-                  className="text-center text-decoration-none"
-                  id="nav-links"
-                >
-                  Promos
-                </a>
-              </li>
-              <li className="nav-item text-center m-3">
-                <a
-                  href="/#contact"
-                  className="text-center text-decoration-none"
-                  id="nav-links"
-                >
-                  Contact Us
-                </a>
-              </li>
             </ul>
             <a
-              onClick={() => navigate("/SignIn")}
-              href="/SignIn"
+              onClick={handleSubmit}
+              href="/"
               className="p-1 ms-auto d-flex justify-content-center text-decoration-none fs-5"
               id="signin-btn"
             >
-              Sign In
+              Sign Out
             </a>
           </div>
         </div>
@@ -70,4 +68,4 @@ function NavBar() {
     </>
   );
 }
-export default NavBar;
+export default NavBarCustomer;

@@ -2,8 +2,40 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import GreenButton from "../components/units/GreenButton";
 import "./SignUp.css";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import api from "../api";
 
-function SignIn() {
+const SignUp = () => {
+  const navigate = useNavigate();
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { password, confirmPassword } = form;
+    if (password !== confirmPassword) {
+      alert("Password do not match");
+      return;
+    }
+    try {
+      const res = await api.post("/register", form);
+      alert("Successfully Registered");
+      navigate("/SignIn");
+    } catch (err) {
+      alert(err.response?.data?.msg || "Registration failed");
+    }
+  };
+
   return (
     <>
       <div className="bg-signin d-flex justify-content-center align-items-center">
@@ -15,37 +47,67 @@ function SignIn() {
               <h5 id="signin-subtitle">Warm Cups, Honest Trade.</h5>
             </div>
             <div className="signin-form-pane col-12 col-md-6 d-flex flex-column justify-content-center align-items-center mt-3">
-              <h1 id="signin-label">Sign In</h1>
-              <form action="" method="POST" class="w-75">
-                 <div class="container mb-3">
-                  <label for="Name" class="form-label">
+              <h1 id="signin-label">Sign Up</h1>
+              <form onSubmit={handleSubmit} className="w-75">
+                <div className="container mb-3">
+                  <label htmlFor="name" className="form-label">
                     Name
                   </label>
-                  <input type="Name" class="form-control" required />
+                  <input
+                    type="text"
+                    name="name"
+                    className="form-control"
+                    onChange={handleChange}
+                    value={form.name}
+                    required
+                  />
                 </div>
-                <div class="container mb-3">
-                  <label for="email" class="form-label">
+
+                <div className="container mb-3">
+                  <label htmlFor="email" className="form-label">
                     Email
                   </label>
-                  <input type="email" class="form-control" required />
+                  <input
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    onChange={handleChange}
+                    value={form.email}
+                    required
+                  />
                 </div>
-                <div class="container mb-3">
-                  <label for="password" class="form-label">
+
+                <div className="container mb-3">
+                  <label htmlFor="password" className="form-label">
                     Password
                   </label>
-                  <input type="password" class="form-control" required />
+                  <input
+                    type="password"
+                    name="password"
+                    className="form-control"
+                    onChange={handleChange}
+                    value={form.password}
+                    required
+                  />
                 </div>
-                <div class="container mb-3">
-                  <label for="confirm-password" class="form-label">
+
+                <div className="container mb-3">
+                  <label htmlFor="confirmPassword" className="form-label">
                     Confirm Password
                   </label>
-                  <input type="confirm-password" class="form-control" required />
+                  <input
+                    type="password"
+                    name="confirmPassword"
+                    className="form-control"
+                    onChange={handleChange}
+                    value={form.confirmPassword}
+                    required
+                  />
                 </div>
-                <div class="container mb-3 text-center">
+
+                <div className="container mb-3 text-center">
                   <GreenButton
                     type="submit"
-                    value="Submit Message"
-                    class="contactbtn"
                     id="submit-btn"
                     greenButtonDesc="Submit"
                   />
@@ -57,6 +119,6 @@ function SignIn() {
       </div>
     </>
   );
-}
+};
 
-export default SignIn;
+export default SignUp;
