@@ -3,7 +3,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import GreenButton from "../components/units/GreenButton";
 import "./SignIn.css";
 import { useNavigate, Link } from "react-router-dom";
-import api from "../api";
+import  {api}  from "../api.js";
 import { AuthContext } from "../context/AuthContext";
 import { useState, useContext } from "react";
 

@@ -6,9 +6,10 @@ import NavBarCustomer from "../components/comps/NavBarCustomer.jsx";
 
 function HomeCustomer() {
 
+
   return (
     <>
-
+      
       <NavBarCustomer />
       <LandingBG/>
     </>

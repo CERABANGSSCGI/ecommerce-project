@@ -3,75 +3,67 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./Products.css";
 import ProductContainer from "../components/comps/ProductContainer";
 import NavBarCustomer from "../components/comps/NavBarCustomer";
+import { useState } from "react";
+import { useEffect } from "react";
+import { apiProduct } from "../api";
+import SidebarCustomer from "../components/comps/SidebarCustomer";
 
 function Products() {
+  const [products, setProducts] = useState([]);
+  const [filtered, setFiltered] = useState([]);
+  const [error, setError] = useState("");
 
-  // temporary items soon get in DB
-  const productContents = [
-    {
-      name: "Kasoy",
-      price: "31.00",
-      desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, minima?",
-    },
-    {
-      name: "Tae",
-      price: "31.00",
-      desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, minima?",
-    },
-    {
-      name: "Customer",
-      price: "31.00",
-      desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, minima?",
-    },
-    {
-      name: "asdasd",
-      price: "31.00",
-      desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, minima?",
-    },
-    {
-      name: "Kasoy",
-      price: "31.00",
-      desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, minima?",
-    },
-    {
-      name: "Kasoy",
-      price: "31.00",
-      desc: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident, minima?",
-    },
-  ];
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await apiProduct.get("/get-product");
+        const allProducts = res.data.Product;
+        setProducts(allProducts);
+        setFiltered(allProducts);
+      } catch (err) {
+        setError("Failed to fetch the products.");
+        console.error(err);
+      }
+    };
+    fetchProducts();
+  }, []);
+
+  const handleFilteredCategory = async (category) => {
+    try{
+      const query = category.toLowerCase() === "all"
+      ? ""
+      : `category=${category.toLowerCase()}`;
+      const res = await apiProduct.get(`/get-product?${query}`);
+      console.log(res.data.Product);
+      setFiltered(res.data.Product);
+    }catch(err){
+      console.error("Filter fetch failed", err)
+    }
+  };
 
   return (
     <>
       <NavBarCustomer />
       <div className="bg-products">
+        <SidebarCustomer onFilterCategory={handleFilteredCategory} />
         <div className="container">
-          <h1 className="product-head">Products</h1>
-            <div class="search-product input-group container mb-3">
-              <input type="text" class="form-control" placeholder="Search Product" required/>
-              <button className="search-btn btn btn-light">Enter</button>
-            </div>
-          <div className="row justify-content-center p-5">
-            {productContents.map((item, index) => (
+          <div className="item-container row justify-content-center p-5">
+            {filtered.map((item, index) => (
               <div
                 className=" product-items d-flex justify-content-center col-12 col-md-3 text-center p-3 mt-3"
                 key={index}
               >
                 <ProductContainer
-                  productName={item.name}
+                  productName={item.productName}
+                  photoURLink={item.photoURL}
                   productPrice={item.price}
-                  productDesc={item.desc}
+                  productDesc={item.productDescription}
                 />
               </div>
             ))}
           </div>
         </div>
       </div>
-      <footer>
-        <div id="product-footer" className="container d-flex justify-content-center align-items-center p-3">
-          <h3 id="product-items" className="p-3 me-3">Items:numberofitems</h3>
-          <button id="product-checkout-btn" className="p-3 ms-3">Checkout</button>
-        </div>
-      </footer>
     </>
   );
 }

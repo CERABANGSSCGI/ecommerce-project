@@ -1,11 +1,16 @@
 .card{
   width: 250px;
   height: auto;
+  background-color: #f7f7f7;
 }
+
 .card-title{
   font-family: "Quicksand";
   font-size: 30px;
   text-transform: uppercase;
+}
+.card-title:hover{
+  cursor: pointer;
 }
 .card-subtitle{
   font-family: "Quicksand";
@@ -16,6 +21,7 @@
 .card-text{
   font-family: "Quicksand";
   font-size: 16px;
+  color: #3030308e;
 }
 
 .add-cart{

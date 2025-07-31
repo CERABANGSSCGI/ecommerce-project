@@ -1,47 +1,48 @@
-.bg-products{
-  background-image: url(../assets/beans.jpg);
-  background-size: cover;
-  background-position: center;
-  height: auto;
+.bg-products {
+  background-color: #f2e9dd;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+  overflow-y: auto;
 }
-.product-items{
+.product-items {
   height: inherit;
 }
-.product-head{
-  padding: 100px 50px 16px 50px;
-  text-align: center;
-  text-transform: uppercase;
-  color: #F6E6D2;
-  font-family: "Quicksand";
+.item-container{
+  margin-top: 12vh;
+  margin-left: 30vh;
+  gap: 30px;
 }
-#product-footer{
+#product-footer {
   background-color: #6f4e377d;
-  color: #F6E6D2;
+  color: #f6e6d2;
   font-family: "Quicksand";
   position: fixed;
   bottom: 0;
   min-width: 100vw;
   backdrop-filter: blur(2px);
 }
-#product-items{
-  color: #F6E6D2;
+#product-items {
+  color: #f6e6d2;
   font-family: "Quicksand";
 }
-#product-checkout-btn{
+#product-checkout-btn {
   color: #303030;
   font-family: "Quicksand";
-  background-color: #B5C99A;
+  background-color: #b5c99a;
   border: none;
   border-radius: 30px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.307);
 }
-.search-btn{
-  background-color: #B5C99A;
+.search-btn {
+  background-color: #b5c99a;
   border: none;
 }
-.search-btn:hover{
+.search-btn:hover {
   background-color: #b5c99ac0;
 }
-.search-product{
+.search-product {
   width: 70vw;
 }

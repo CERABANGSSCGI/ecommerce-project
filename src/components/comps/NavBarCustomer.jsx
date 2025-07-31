@@ -1,17 +1,16 @@
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/NavBar.css";
+import "../styles/NavBarCustomer.css";
 import { useContext } from "react";
-import api from "../../api";
+import { api } from "../../api";
 import { AuthContext } from "../../context/AuthContext";
 
 const navItems = [
   { name: "Home", link: "/HomeCustomer" },
+  { name: "History", link: "/History" },
   { name: "Products", link: "/Products" },
-  { name: "Cart", link: "/Cart" },
 ];
 
 function NavBarCustomer() {
-
   const navigate = useNavigate();
   const { setUser } = useContext(AuthContext);
 
@@ -27,7 +26,7 @@ function NavBarCustomer() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-md position-fixed">
+      <nav className="navbar-customer navbar navbar-expand-md position-fixed">
         <div className="container ">
           <a href="#" className="navbar-brand p-0">
             <img src="src/assets/logo.png" alt="logo" />

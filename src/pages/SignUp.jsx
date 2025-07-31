@@ -4,7 +4,7 @@ import GreenButton from "../components/units/GreenButton";
 import "./SignUp.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import api from "../api";
+import {api} from "../api";
 
 const SignUp = () => {
   const navigate = useNavigate();
