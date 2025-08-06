@@ -15,9 +15,6 @@ import { Navigate } from "react-router-dom";
 
 function Home() {
 
-  const { user } = useContext(AuthContext);
-  if (user) {return <Navigate to="/HomeCustomer" />};
-
   return (
     <>
       <NavBar />

@@ -12,11 +12,11 @@
   gap: 50px;
   flex-shrink: 0;
   position: fixed;
+  font-family: "Quicksand";
 }
 
 .sidebar-title {
   font-size: 1.5rem;
-  margin-bottom: 30px;
   color: #F5F2EF;
   text-align: center;
 }
@@ -24,14 +24,14 @@
 .sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
 }
 
 .sidebar-link {
   font-family: "Quicksand";
   color: #C7A17A;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   transition: color 0.2s ease;
   border: none;
   background-color: #3E2C23;
@@ -53,8 +53,12 @@
 }
 .sidebar-link:active {
   color: #9c9c9c;
+  background-color: white;
 }
 .sidebar-button:hover {
   color: #3E2C23;
 }
 
+.form-control{
+  color:#3E2C23;
+}

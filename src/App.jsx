@@ -7,6 +7,7 @@ import ErrorPage from "./pages/ErrorPage.jsx";
 import Admin from "./pages/Admin.jsx";
 import HomeCustomer from "./pages/HomeCustomer.jsx";
 import PrivateRoute from "./components/comps/PrivateRoutes.jsx";
+import Cart from "./pages/Cart.jsx";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,14 @@ const router = createBrowserRouter([
     element: (
       <PrivateRoute>
         <Products />
+      </PrivateRoute>
+    ),
+  },
+   {
+    path: "/Cart",
+    element: (
+      <PrivateRoute>
+        <Cart />
       </PrivateRoute>
     ),
   },

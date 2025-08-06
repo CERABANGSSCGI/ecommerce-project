@@ -8,6 +8,7 @@ const navItems = [
   { name: "Home", link: "/HomeCustomer" },
   { name: "History", link: "/History" },
   { name: "Products", link: "/Products" },
+  { name: "Cart", link: "/Cart" },
 ];
 
 function NavBarCustomer() {

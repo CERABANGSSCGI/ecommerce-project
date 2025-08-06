@@ -21,7 +21,7 @@ const LandingBG = () => {
     <div id="bg-cover">
       <div id="welcome-container">
         <h1 id="welcome-msg" className="text-center">
-          Welcome to Kape Kalakal {user?.name|| "Kape Lover"}!
+          Welcome to Kape Kalakal {user?.name|| ""}!
         </h1>
         <GreenButton greenButtonDesc="Order Now" onClick={handleClick} />
       </div>

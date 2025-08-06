@@ -7,37 +7,54 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { apiProduct } from "../api";
 import SidebarCustomer from "../components/comps/SidebarCustomer";
+import { useSearchParams } from "react-router-dom";
 
 function Products() {
-  const [products, setProducts] = useState([]);
   const [filtered, setFiltered] = useState([]);
+  const [searchParams, setSearchParams] = useSearchParams();
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchProducts = async (query = "") => {
       try {
-        const res = await apiProduct.get("/get-product");
+        const res = await apiProduct.get(`/get-product${query}`);
         const allProducts = res.data.Product;
-        setProducts(allProducts);
         setFiltered(allProducts);
       } catch (err) {
         setError("Failed to fetch the products.");
-        console.error(err);
+        console.error(error, err);
       }
     };
     fetchProducts();
   }, []);
 
-  const handleFilteredCategory = async (category) => {
-    try{
-      const query = category.toLowerCase() === "all"
-      ? ""
-      : `category=${category.toLowerCase()}`;
-      const res = await apiProduct.get(`/get-product?${query}`);
-      console.log(res.data.Product);
-      setFiltered(res.data.Product);
-    }catch(err){
-      console.error("Filter fetch failed", err)
+  const handleFilteredItems = async (filters) => {
+    const queryParams = [];
+
+    if (filters.category && filters.category.toLowerCase() !== "all") {
+      queryParams.push(`category=${filters.category.toLowerCase()}`);
+    }
+    if (filters.search) {
+      queryParams.push(`search=${filters.search}`);
+    }
+    if (filters.minPrice) {
+      queryParams.push(`minPrice=${filters.minPrice}`);
+    }
+    if (filters.maxPrice) {
+      queryParams.push(`maxPrice=${filters.maxPrice}`);
+    }
+
+    const queryString = queryParams.length > 0 ? `?${queryParams.join("&")}` : "";
+
+    setSearchParams(queryString);
+
+    try {
+      const res = await apiProduct.get(`/get-product${queryString}`);
+      const allProducts = res.data.Product
+      setFiltered(allProducts);
+    } catch (err) {
+      setError("Failed to fetch the products.");
+      console.error(error, err);
     }
   };
 
@@ -45,7 +62,7 @@ function Products() {
     <>
       <NavBarCustomer />
       <div className="bg-products">
-        <SidebarCustomer onFilterCategory={handleFilteredCategory} />
+        <SidebarCustomer onFilterItems={handleFilteredItems} />
         <div className="container">
           <div className="item-container row justify-content-center p-5">
             {filtered.map((item, index) => (
