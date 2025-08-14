@@ -19,17 +19,7 @@ body {
 .ordered-items {
   height: 210px;
   border-radius: 4px;
-  background-color: #d7d7d7 !important;
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
+  background-color: #f7f7f7 !important;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.08);
   width: 50vw;
-}
-
-.computation {
-  height: 50vh;
-  width: 20vw;
-  border-radius: 4px;
-  top: 25%;
-  left: 70%;
-  background-color: #d7d7d7 !important;
-  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.2);
 }

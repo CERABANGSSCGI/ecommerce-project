@@ -1,13 +1,17 @@
+import { useState } from "react";
 import { apiCart } from "../../api.js";
 import "../styles/ProductContainer.css";
 import AddToCart from "../units/AddToCart.jsx";
 import ProductModal from "./ProductModal.jsx";
+import ConfirmAdd from "./ConfirmAdd.jsx";
 
 const ProductContainer = (item) => {
+  const [count, setCount] = useState(1);
+
   const handleAdd = async (id, amount) => {
     try {
       await apiCart.post("/add-to-cart", { productID: id, quantity: amount });
-      alert("Successfully Added")
+      alert("Successfully Added");
     } catch (err) {
       setError("Failed to fetch the Items.");
       console.error(err);
@@ -27,7 +31,7 @@ const ProductContainer = (item) => {
           />
           <h1 className="card-title">{item.productName}</h1>
           <h5 className="card-subtitle text-secondary">
-            {(item.productPrice).toLocaleString("en-ph", {
+            {item.productPrice.toLocaleString("en-ph", {
               style: "currency",
               currency: "PHP",
             })}
@@ -36,12 +40,22 @@ const ProductContainer = (item) => {
             <ProductModal products={item} />
           </div>
           <div className="btn-group">
-            <button className="btn btn-dark">-</button>
-            <div className="quantity bg-light"></div>
-            <button className="btn btn-dark">+</button>
+            <button
+              className="btn btn-dark"
+              onClick={() => setCount( count > 1 ? count - 1 : count = 1 )}
+            >
+              -
+            </button>
+            <div className="quantity bg-light">{count}</div>
+            <button
+              className="btn btn-dark"
+              onClick={() => setCount(count + 1)}
+            >
+              +
+            </button>
           </div>
           <div className="add-cart">
-            <AddToCart handleAdd={() => handleAdd(item.productID, 1)} />
+            <ConfirmAdd count={count} product={item} />
           </div>
         </div>
       </div>

@@ -93,9 +93,75 @@ function Cart() {
             );
           })}
 
-          <div className="computation position-fixed bg-secondary d-flex flex-column justify-content-center align-items-center gap-3">
+          <div className="order-container position-fixed p-0">
+            <div className="">
+              <h1 className="text-center mt-3">Place Order</h1>
+              <hr className="section-breaker" />
+              <div className="deli-customer-information">
+                <div className="deli-contact-info d-flex align-items-center gap-2 ms-3">
+                  <h4>Syrill Laguerta</h4> <small>09XXXXXXXXX</small>
+                </div>
+                <hr className="section-breaker" />
+                <div className="deli-address ms-3 me-3">
+                  <h5>Address:</h5>
+                  <p>
+                    123 Sample Street Barangay Maligaya Quezon City, Metro
+                    Manila Philippines 1100
+                  </p>
+                </div>
+                <hr className="section-breaker" />
+                <div className="deli-payment-method ms-3">
+                  <h5>Payment Method</h5>
+                  <form action="" onSubmit="">
+                    <input
+                      type="radio"
+                      name="payment-method"
+                      id="COD"
+                      value="COD"
+                      checked={paymentMethod === "COD"}
+                      onChange={(e) => setPaymentMethod(e.target.value)}
+                    />
+                    <label htmlFor="COD">Cash On Delivery</label>
+
+                    <input
+                      type="radio"
+                      name="payment-method"
+                      id="GCash"
+                      value="GCash"
+                      checked={paymentMethod === "GCash"}
+                      onChange={(e) => setPaymentMethod(e.target.value)}
+                    />
+                    <label htmlFor="GCash">GCash</label>
+                  </form>
+                </div>
+                <hr className="section-breaker" />
+                <div className="deli-computation text-center d-flex flex-column">
+                  <h4>Computation</h4>
+                  <small className="actual-computation">
+                    Subtotal: PHP {total * 0.88}
+                  </small>
+                  <small>Tax(12%): PHP {total * 0.12}</small>
+                  <h5>
+                    Total Price:{" "}
+                    {total.toLocaleString("en-ph", {
+                      style: "currency",
+                      currency: "PHP",
+                    })}
+                  </h5>
+                  <div className="place-order-container">
+                    <button
+                      onClick={handleCheckout}
+                      className="place-order btn btn-secondary"
+                    >
+                      Place Order
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* <h3>Computation</h3>
             <div className="payment-method text-center">
-              <h3>Computation</h3>
               <h5>Payment Method</h5>
               <form action="" onSubmit="">
                 <input
@@ -119,18 +185,20 @@ function Cart() {
                 <label htmlFor="GCash">GCash</label>
               </form>
             </div>
-            <div className="actual-computation">Subtotal: PHP {total}</div>
+            <div className="actual-computation">
+              Subtotal: PHP {total * 0.88}
+            </div>
             <p>Tax(12%): PHP {total * 0.12}</p>
             <h5>
               Total Price:{" "}
-              {(total * 1.12).toLocaleString("en-ph", {
+              {total.toLocaleString("en-ph", {
                 style: "currency",
                 currency: "PHP",
               })}
             </h5>
             <button onClick={handleCheckout} className="btn btn-light">
               Checkout
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

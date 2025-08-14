@@ -18,3 +18,20 @@
   color: #8e563b;
   background-color: #f7f7f7 !important;
 }
+
+.table-img{
+  height: 10%;
+  width: 20%;
+}
+
+.image-cell{
+  width: 30%;
+}
+
+.generic-table td {
+  width: auto; /* Let content decide the size */
+}
+
+.generic-table td:nth-child(7) {
+  width: 10%; /* Let content decide the size */
+}

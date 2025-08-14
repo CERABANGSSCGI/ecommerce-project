@@ -35,8 +35,14 @@ const CartItems = ({
                 </button>
               </div>
             </div>
-            <p>Price per item: PHP {productPrice} </p>
-            <p>Price: PHP {productTotalPrice} </p>
+            <p>Price per item: {(productPrice).toLocaleString("en-ph", {
+                style: "currency",
+                currency: "PHP",
+              })} </p>
+            <p>Price: {(productTotalPrice).toLocaleString("en-ph", {
+                style: "currency",
+                currency: "PHP",
+              })} </p>
           </div>
         </div>
       </div>

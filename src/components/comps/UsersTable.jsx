@@ -1,8 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import "../styles/GenericTable.css";
+import "../styles/UsersTable.css";
 
-const GenericTable = ({ sampleData }) => {
+const UsersTable = ({ sampleData }) => {
   return (
     <div>
       <table className=" mt-2 generic-table table table-striped table-bordered table-hover">
@@ -11,11 +11,10 @@ const GenericTable = ({ sampleData }) => {
             <th>Commands</th>
             <th>#</th>
             <th>ID</th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Category</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
             <th>Image</th>
-            <th>Updated Date</th>
           </tr>
         </thead>
         <tbody>
@@ -29,13 +28,10 @@ const GenericTable = ({ sampleData }) => {
                   </td>
                   <td>{index + 1}</td>
                   <td>{item._id}</td>
-                  <td>{item.productName}</td>
-                  <td>{item.price}</td>
-                  <td>{item.category}</td>
-                  <td className="image-cell">
-                    <img className="table-img" src={item.photoURL} alt="" />
-                  </td>
-                  <td>{new Date(item.updatedAt).toISOString().slice(0, 16)}</td>
+                  <td>{item.name}</td>
+                  <td>{item.email}</td>
+                  <td>{item.role}</td>
+                  <td>{item.photoURL}</td>
                 </tr>
               );
             })
@@ -53,4 +49,4 @@ const GenericTable = ({ sampleData }) => {
   );
 };
 
-export default GenericTable;
+export default UsersTable;

@@ -3,18 +3,26 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./Admin.css";
 import SidebarAdmin from "../components/comps/SidebarAdmin";
 import GenericTable from "../components/comps/GenericTable";
+import { useEffect, useState } from "react";
+import { api, apiProduct } from "../api";
 
 const Inventory = () => {
-  const sampleData = [
-    { id: 1, name: "Barako Beans", price: 250, stock: 10 },
-    { id: 2, name: "Arabica Beans", price: 300, stock: 5 },
-    { id: 2, name: "Arabica Beans", price: 300, stock: 5 },
-    { id: 2, name: "Arabica Beans", price: 300, stock: 5 },
-    { id: 2, name: "Arabica Beans", price: 300, stock: 5 },
-    { id: 2, name: "Arabica Beans", price: 300, stock: 5 },
-    { id: 2, name: "Arabica Beans", price: 300, stock: 5 },
-    { id: 2, name: "Arabica Beans", price: 300, stock: 5 },
-  ];
+  const [filtered, setFiltered] = useState([]);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const res = await apiProduct.get("/get-product");
+        const allProducts = res.data.Product;
+        setFiltered(allProducts);
+      } catch (err) {
+        setError("Failed to fetch the products.");
+        console.error(error, err);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <div>
@@ -27,7 +35,7 @@ const Inventory = () => {
             <div className="command-buttons">
               <button className="btn">Add Item</button>
             </div>
-            <GenericTable sampleData={sampleData} />
+            <GenericTable sampleData={filtered} />
           </div>
         </div>
       </div>
