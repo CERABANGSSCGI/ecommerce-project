@@ -1,0 +1,72 @@
+.sidebar-admin {
+  width: 12vw;
+  background-color: #3e2c23;
+  color: #c7a17a;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+  gap: 50px;
+  flex-shrink: 0;
+  position: fixed;
+  font-family: "Quicksand";
+  overflow: hidden;
+}
+
+.sidebar-title {
+  font-size: 1.5rem;
+  color: #f5f2ef;
+  text-align: center;
+  width: 100%;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-link {
+  font-family: "Quicksand";
+  color: #c7a17a;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+  border: none;
+  background-color: #3e2c23;
+}
+.sidebar-button {
+  font-family: "Quicksand";
+  color: #c7a17a;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s ease;
+  background-color: #8e563b;
+  text-align: center;
+  padding: 12px;
+  border-radius: 50px;
+  white-space: nowrap;
+  border-end-end-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.sidebar-link:hover {
+  color: #faf9f6;
+}
+.sidebar-link:active {
+  color: #9c9c9c;
+  background-color: white;
+}
+.sidebar-button:hover {
+  color: #303030;
+}
+
+.sidebar-button.active {
+  background-color: #f7f7f7;
+}
+
+.form-control {
+  color: #3e2c23;
+}

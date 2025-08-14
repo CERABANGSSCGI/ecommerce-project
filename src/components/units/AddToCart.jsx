@@ -1,9 +1,9 @@
 import "../styles/AddToCart.css"
 
-const AddToCart = () => {
+const AddToCart = ({handleAdd}) => {
   return (
     <div>
-      <button id="add-to-cart">
+      <button onClick={handleAdd} id="add-to-cart">
         Add To Cart
       </button>
     </div>

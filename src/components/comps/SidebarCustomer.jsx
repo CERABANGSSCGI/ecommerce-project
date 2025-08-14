@@ -71,6 +71,7 @@ const SidebarCustomer = ({ onFilterItems }) => {
                   onChange={(e) => setMinPrice(e.target.value)}
                   min={100}
                   max={10000}
+                  step={50}
                 />
               </div>
               <div className="col-6">
@@ -82,6 +83,7 @@ const SidebarCustomer = ({ onFilterItems }) => {
                   onChange={(e) => setMaxPrice(e.target.value)}
                   min={100}
                   max={10000}
+                  step={50}
                 />
               </div>
             </div>

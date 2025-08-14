@@ -3,16 +3,15 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./Admin.css";
 import SidebarAdmin from "../components/comps/SidebarAdmin";
 
-const Admin = () => {
-  
+const Users = () => {
   return (
     <div>
       <div className="main d-flex">
         <SidebarAdmin />
         <div className="offset"></div>
         <div className="background-admin d-flex flex-column align-items-center">
-          <h1 className="mt-5">Dashboard</h1>
-          <div className="dashboard-container">
+          <h1 className="mt-5">Users</h1>
+          <div className="table-container">
             
           </div>
         </div>
@@ -21,4 +20,4 @@ const Admin = () => {
   );
 };
 
-export default Admin;
+export default Users;

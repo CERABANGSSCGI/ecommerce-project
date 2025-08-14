@@ -12,9 +12,9 @@ import LandingContact from "../components/comps/LandingContact";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { Navigate } from "react-router-dom";
+import LandingFooter from "../components/comps/LandingFooter";
 
 function Home() {
-
   return (
     <>
       <NavBar />
@@ -25,6 +25,7 @@ function Home() {
       <DiscountCard />
       <LandingFeedback />
       <LandingContact />
+      <LandingFooter />
     </>
   );
 }

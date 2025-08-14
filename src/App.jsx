@@ -8,6 +8,9 @@ import Admin from "./pages/Admin.jsx";
 import HomeCustomer from "./pages/HomeCustomer.jsx";
 import PrivateRoute from "./components/comps/PrivateRoutes.jsx";
 import Cart from "./pages/Cart.jsx";
+import Inventory from "./pages/Inventory.jsx";
+import Users from "./pages/Users.jsx";
+import Reports from "./pages/Reports.jsx";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +54,30 @@ const router = createBrowserRouter([
     element: (
       <PrivateRoute role="Admin">
         <Admin />
+      </PrivateRoute>
+    ),
+  },
+    {
+    path: "/Inventory",
+    element: (
+      <PrivateRoute role="Admin">
+        <Inventory />
+      </PrivateRoute>
+    ),
+  },
+    {
+    path: "/Users",
+    element: (
+      <PrivateRoute role="Admin">
+        <Users />
+      </PrivateRoute>
+    ),
+  },
+    {
+    path: "/Reports",
+    element: (
+      <PrivateRoute role="Admin">
+        <Reports />
       </PrivateRoute>
     ),
   },

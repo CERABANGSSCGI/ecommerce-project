@@ -1,7 +1,7 @@
 .card{
   width: 250px;
   height: auto;
-  background-color: #f7f7f7;
+  background-color: #c7a07a27;
   border: none;
   border-radius: 2px;
   transition: all ease 0.5s;
@@ -9,6 +9,7 @@
 .card:hover{
   transform: translateY(-2px);
  box-shadow: 0 0 10px 0.5px rgba(0, 0, 0, 0.15);
+ background-color: #f7f7f7;
 }
 .card-title{
   font-family: "Quicksand";

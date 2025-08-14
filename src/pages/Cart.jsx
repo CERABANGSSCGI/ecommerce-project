@@ -2,47 +2,66 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import NavBarCustomer from "../components/comps/NavBarCustomer.jsx";
 import "./Cart.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CartItems from "../components/comps/CartItems.jsx";
+import { apiCart } from "../api.js";
 
 function Cart() {
   const [paymentMethod, setPaymentMethod] = useState("COD");
-  const [cartItems, setCartItems] = useState([
-    {
-      _id: "1",
-      name: "Barako Beans",
-      price: 250,
-      quantity: 2,
-      image: "/images/barako.jpg",
-    },
-    {
-      _id: "2",
-      name: "Arabica Beans",
-      price: 300,
-      quantity: 1,
-      image: "/images/arabica.jpg",
-    },
-    {
-      _id: "3",
-      name: "Arabica Beans",
-      price: 300,
-      quantity: 1,
-      image: "/images/arabica.jpg",
-    },
-  ]);
+  const [cartItems, setCartItems] = useState([]);
+  const [error, setError] = useState("");
 
-  const handleQuantityChange = (id, amount) => {
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const res = await apiCart.get("/get-cart");
+        const allItems = res.data.items;
+        setCartItems(allItems);
+      } catch (err) {
+        setError("Failed to fetch the Items.");
+        console.error(err);
+      }
+    };
+    fetchItems();
+  }, []);
+
+  const handleQuantityChange = async (id, amount) => {
+    try {
+      await apiCart.post("/add-to-cart", { productID: id, quantity: amount });
+    } catch (err) {
+      setError("Failed to fetch the Items.");
+      console.error(err);
+    }
     setCartItems((prev) =>
       prev
         .map((item) =>
-          item._id === id ? { ...item, quantity: item.quantity + amount } : item
+          item.productID === id
+            ? { ...item, quantity: item.quantity + amount }
+            : item
         )
         .filter((item) => item.quantity > 0)
     );
   };
 
-  const handleRemove = (id) => {
-    setCartItems((prev) => prev.filter((item) => item._id !== id));
+  const handleCheckout = async () => {
+    try {
+      await apiCart.patch("/check-out");
+    } catch (err) {
+      setError("Failed to checkout.");
+      console.error(err);
+    }
+    setCartItems([]);
+  };
+
+  const handleRemove = async (id) => {
+    try {
+      await apiCart.post("/remove-from-cart", { productID: id });
+    } catch (err) {
+      setError("Failed to fetch the Items.");
+      console.error(err);
+    }
+
+    setCartItems((prev) => prev.filter((item) => item.productID !== id));
   };
 
   const total = cartItems.reduce(
@@ -56,19 +75,20 @@ function Cart() {
       <h1>Cart</h1>
       <div className="cart-container container d-flex">
         <div className="row d-flex mt-5 gap-3">
-          {cartItems.map((item, index) => {
+          {cartItems.map((item) => {
             const totalPerItem = item.price * item.quantity;
             return (
-              <div className="checkout-item-container" key={index}>
+              <div className="checkout-item-container" key={item.productID}>
                 <CartItems
-                  productName={item.name}
-                  photoURLink={item.image}
+                  productName={item.productName}
+                  photoURLink={item.photoURL}
                   productPrice={item.price}
                   productQuantity={item.quantity}
                   productTotalPrice={totalPerItem}
-                  minusQuantity={() => handleQuantityChange(item._id, -1)}
-                  addQuantity={() => handleQuantityChange(item._id, 1)}
+                  minusQuantity={() => handleQuantityChange(item.productID, -1)}
+                  addQuantity={() => handleQuantityChange(item.productID, 1)}
                 />
+                <button onClick={() => handleRemove(item.productID)}>X</button>
               </div>
             );
           })}
@@ -108,7 +128,9 @@ function Cart() {
                 currency: "PHP",
               })}
             </h5>
-            <button className="btn btn-light">Checkout</button>
+            <button onClick={handleCheckout} className="btn btn-light">
+              Checkout
+            </button>
           </div>
         </div>
       </div>

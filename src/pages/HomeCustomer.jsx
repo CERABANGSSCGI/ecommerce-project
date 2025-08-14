@@ -7,6 +7,7 @@ import LandingAbout from "../components/comps/LandingAbout";
 import LandingPrices from "../components/comps/LandingPrices";
 import LandingFeedback from "../components/comps/LandingFeedback";
 import LandingContact from "../components/comps/LandingContact";
+import LandingFooter from "../components/comps/LandingFooter.jsx";
 
 function HomeCustomer() {
 
@@ -20,6 +21,7 @@ function HomeCustomer() {
       <LandingPrices />
       <LandingFeedback />
       <LandingContact />
+      <LandingFooter/>
     </>
   );
 }

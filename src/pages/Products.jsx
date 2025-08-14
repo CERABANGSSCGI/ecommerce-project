@@ -44,13 +44,14 @@ function Products() {
       queryParams.push(`maxPrice=${filters.maxPrice}`);
     }
 
-    const queryString = queryParams.length > 0 ? `?${queryParams.join("&")}` : "";
+    const queryString =
+      queryParams.length > 0 ? `?${queryParams.join("&")}` : "";
 
     setSearchParams(queryString);
 
     try {
       const res = await apiProduct.get(`/get-product${queryString}`);
-      const allProducts = res.data.Product
+      const allProducts = res.data.Product;
       setFiltered(allProducts);
     } catch (err) {
       setError("Failed to fetch the products.");
@@ -65,19 +66,24 @@ function Products() {
         <SidebarCustomer onFilterItems={handleFilteredItems} />
         <div className="container">
           <div className="item-container row justify-content-center p-5">
-            {filtered.map((item, index) => (
-              <div
-                className=" product-items d-flex justify-content-center col-12 col-md-3 text-center p-3 mt-3"
-                key={index}
-              >
-                <ProductContainer
-                  productName={item.productName}
-                  photoURLink={item.photoURL}
-                  productPrice={item.price}
-                  productDesc={item.productDescription}
-                />
-              </div>
-            ))}
+            {filtered.length !== 0 ? (
+              filtered.map((item, index) => (
+                <div
+                  className=" product-items d-flex justify-content-center col-12 col-md-3 text-center p-3 mt-3"
+                  key={index}
+                >
+                  <ProductContainer
+                    productID={item._id}
+                    productName={item.productName}
+                    photoURLink={item.photoURL}
+                    productPrice={item.price}
+                    productDesc={item.productDescription}
+                  />
+                </div>
+              ))
+            ) : (
+              <p className="text-center fw-5 fs-5">No data found</p>
+            )}
           </div>
         </div>
       </div>

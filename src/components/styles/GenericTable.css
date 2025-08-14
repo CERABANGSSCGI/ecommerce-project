@@ -1,0 +1,20 @@
+.generic-table {
+  transition: all ease 0.5s !important;
+}
+
+.command-buttons {
+  width: 20%;
+  white-space: nowrap;
+}
+
+.command-buttons button {
+  background-color: #8e563b !important;
+  margin: 2px;
+  color: #f7f7f7;
+  width: 48%;
+}
+
+.command-buttons button:hover {
+  color: #8e563b;
+  background-color: #f7f7f7 !important;
+}
