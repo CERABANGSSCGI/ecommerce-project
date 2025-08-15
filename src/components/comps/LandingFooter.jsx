@@ -10,7 +10,7 @@ const LandingFooter = () => {
       <div className="background">
         <div className="container mt-3 mb-3">
           <div className="row text-center align-items-center">
-            <div className="col-12 col-md-4 d-flex flex-column">
+            <div className="col-12 col-md-4 d-flex flex-column gap-2">
               <a href="" className="quicklinks">
                 Home
               </a>
@@ -37,7 +37,7 @@ const LandingFooter = () => {
                 the Philippines.
               </p>
             </div>
-            <div className="col-12 col-md-4 d-flex flex-column gap-3">
+            <div className="right-footer col-12 col-md-4 d-flex flex-column gap-3">
               <div className="socials">
                 <a href="" className="social-icons m-3">
                   <FaFacebook color="#6F4E37" />
@@ -49,7 +49,7 @@ const LandingFooter = () => {
                   <SiShopee color="#6F4E37" />
                 </a>
               </div>
-              <a href="tel:+639123456789">
+              <a className="teltel" href="tel:+639123456789">
                 <FaPhone color="#6F4E37" />
                 09123456789
               </a>

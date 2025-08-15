@@ -1,0 +1,17 @@
+.quicklinks {
+  text-decoration: none;
+  color: #303030;
+  transition: all ease 0.5s;
+  text-align: start;
+}
+.quicklinks:hover {
+  font-weight: bold;
+}
+.right-footer {
+  text-align: end;
+}
+.teltel {
+  text-decoration: none;
+  color: #303030;
+  transition: all ease 0.5s;
+}

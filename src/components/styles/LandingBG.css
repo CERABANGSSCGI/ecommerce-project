@@ -1,9 +1,10 @@
 #bg-cover{
-  background-image: url(../../assets/beans.jpg);
+  background-image: url(../../assets/three-coffee.jpg);
   height: 100vh;
   background-size: cover;
   margin: 0 !important;
   filter: brightness(0.9);
+  background-position: center;
 }
 #welcome-container{
   display: flex;
@@ -16,7 +17,7 @@
   display: flex;
   padding: 30px;
   color: #F6E6D2;
-  background-color: #6f4e378c;
+  background-color: #6f4e375c;
   font-family: "Medula One";
   font-size: 100px;
   border-radius: 10px;

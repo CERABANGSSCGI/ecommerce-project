@@ -5,10 +5,12 @@ import SidebarAdmin from "../components/comps/SidebarAdmin";
 import GenericTable from "../components/comps/GenericTable";
 import { useEffect, useState } from "react";
 import { api, apiProduct } from "../api";
+import AddProductsModal from "../components/comps/AddProductsModal";
 
 const Inventory = () => {
   const [filtered, setFiltered] = useState([]);
   const [error, setError] = useState("");
+  
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -24,6 +26,8 @@ const Inventory = () => {
     fetchProducts();
   }, []);
 
+
+
   return (
     <div>
       <div className="main d-flex">
@@ -32,9 +36,10 @@ const Inventory = () => {
         <div className="background-admin d-flex flex-column align-items-center">
           <h1 className="mt-5">Inventory</h1>
           <div className="table-container">
-            <div className="command-buttons">
+            {/* <div className="command-buttons">
               <button className="btn">Add Item</button>
-            </div>
+            </div> */}
+            <AddProductsModal />
             <GenericTable sampleData={filtered} />
           </div>
         </div>

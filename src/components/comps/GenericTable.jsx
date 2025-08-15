@@ -3,6 +3,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../styles/GenericTable.css";
 
 const GenericTable = ({ sampleData }) => {
+  console.log(sampleData);
   return (
     <div>
       <table className=" mt-2 generic-table table table-striped table-bordered table-hover">
@@ -16,6 +17,7 @@ const GenericTable = ({ sampleData }) => {
             <th>Category</th>
             <th>Image</th>
             <th>Updated Date</th>
+            <th>Added By</th>
           </tr>
         </thead>
         <tbody>
@@ -36,6 +38,7 @@ const GenericTable = ({ sampleData }) => {
                     <img className="table-img" src={item.photoURL} alt="" />
                   </td>
                   <td>{new Date(item.updatedAt).toISOString().slice(0, 16)}</td>
+                  <td>{item.addedBy}</td>
                 </tr>
               );
             })
